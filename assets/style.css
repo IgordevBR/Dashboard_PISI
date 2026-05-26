@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+:root {
+  --bg-primary:   #171a21;
+  --bg-secondary: #1b2838;
+  --bg-card:      #16202d;
+  --bg-hover:     #1e3a52;
+  --accent:       #66c0f4;
+  --accent-dim:   #3d7fa8;
+  --success:      #a9c47f;
+  --warning:      #f4c842;
+  --danger:       #c0392b;
+  --cluster-0:    #e05c5c;
+  --cluster-1:    #f4b942;
+  --cluster-2:    #5cb85c;
+  --cluster-3:    #5b9bd5;
+  --text-primary: #c6d4df;
+  --text-secondary:#8f98a0;
+  --text-muted:   #556872;
+  --border:       #2a475e;
+  --border-light: #1e3144;
+  --radius:       6px;
+  --shadow:       0 4px 24px rgba(0,0,0,0.4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body, #_dash-app-content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  min-height: 100vh;
+}
+
+/* ─── Navbar ──────────────────────────────────────────────────────────── */
+.playscope-navbar {
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--accent-dim);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+
+.navbar-logo {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-right: 32px;
+  white-space: nowrap;
+}
+
+.navbar-logo span { color: var(--text-primary); }
+
+/* ─── Tabs ───────────────────────────────────────────────────────────── */
+.dash-tabs { background: transparent !important; border: none !important; }
+.dash-tabs .tab {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  color: var(--text-secondary) !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  padding: 4px 16px !important;
+  transition: all 0.2s !important;
+}
+.dash-tabs .tab:hover {
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent-dim) !important;
+}
+.dash-tabs .tab--selected {
+  color: var(--accent) !important;
+  border-bottom: 3px solid var(--accent) !important;
+  background: transparent !important;
+}
+.dash-tabs-content { background: transparent !important; }
+
+/* ─── Layout ─────────────────────────────────────────────────────────── */
+.main-wrapper {
+  display: flex;
+  min-height: calc(100vh - 56px);
+}
+
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  padding: 20px 16px;
+  overflow-y: auto;
+  max-height: calc(100vh - 56px);
+  position: sticky;
+  top: 56px;
+}
+
+.content-area {
+  flex: 1;
+  padding: 20px 24px;
+  overflow-x: hidden;
+}
+
+/* ─── Sidebar elements ────────────────────────────────────────────────── */
+.filter-section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  margin-top: 18px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-light);
+}
+.filter-section-title:first-child { margin-top: 4px; }
+
+.filter-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.sidebar-reset-btn {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 7px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 20px;
+  transition: all 0.2s;
+  font-family: 'Source Sans 3', sans-serif;
+}
+.sidebar-reset-btn:hover {
+  background: var(--bg-hover);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* ─── Cards ──────────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+/* ─── KPI Cards ──────────────────────────────────────────────────────── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--accent);
+}
+.kpi-card:hover { border-color: var(--accent-dim); }
+
+.kpi-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.kpi-value {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.kpi-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ─── Chart grid ─────────────────────────────────────────────────────── */
+.chart-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.chart-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.chart-grid-21 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.chart-grid-12 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+}
+
+/* ─── Cluster badges ─────────────────────────────────────────────────── */
+.cluster-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Rajdhani', sans-serif;
+}
+.cluster-0 { background: rgba(224,92,92,0.15); color: var(--cluster-0); border: 1px solid rgba(224,92,92,0.3); }
+.cluster-1 { background: rgba(244,185,66,0.15); color: var(--cluster-1); border: 1px solid rgba(244,185,66,0.3); }
+.cluster-2 { background: rgba(92,184,92,0.15); color: var(--cluster-2); border: 1px solid rgba(92,184,92,0.3); }
+.cluster-3 { background: rgba(91,155,213,0.15); color: var(--cluster-3); border: 1px solid rgba(91,155,213,0.3); }
+
+/* ─── Dash components overrides ───────────────────────────────────────── */
+.Select-control, .Select-menu-outer {
+  background-color: var(--bg-primary) !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+}
+.Select-placeholder, .Select-value-label { color: var(--text-secondary) !important; }
+.Select-option { background: var(--bg-card) !important; color: var(--text-primary) !important; }
+.Select-option.is-focused { background: var(--bg-hover) !important; }
+.Select-multi-value-wrapper { background: transparent !important; }
+.Select-value { background: var(--bg-hover) !important; border-color: var(--border) !important; }
+
+.rc-slider-rail { background: var(--border) !important; }
+.rc-slider-track { background: var(--accent-dim) !important; }
+.rc-slider-handle { border-color: var(--accent) !important; background: var(--accent) !important; }
+
+/* Dropdown */
+.dash-dropdown .Select-control {
+  background: var(--bg-primary) !important;
+  border-color: var(--border) !important;
+}
+
+/* Radio / Checklist */
+.dash-checklist label, .dash-radioitems label {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-bottom: 4px !important;
+  cursor: pointer !important;
+  transition: color 0.15s !important;
+}
+.dash-checklist label:hover, .dash-radioitems label:hover {
+  color: var(--accent) !important;
+}
+
+/* Plotly chart container */
+.js-plotly-plot { width: 100% !important; }
+.modebar { background: transparent !important; }
+.modebar-btn path { fill: var(--text-muted) !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+
+/* Page subtitle */
+.page-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--accent-dim);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
